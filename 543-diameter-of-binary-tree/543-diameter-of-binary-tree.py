@@ -16,8 +16,7 @@ class Solution:
             right = 0
             if node.right != None:
                 right = 1 + helper(node.right, m)
-            
-            
+              
             if left + right > m[0]:
                 m[0] = left + right
             
