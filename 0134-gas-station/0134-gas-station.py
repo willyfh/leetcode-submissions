@@ -12,17 +12,16 @@ class Solution:
                 tank -= cost[i]
                 c+=1
             else:
+                if end: break
                 tank = 0
                 c=0
                 start = i+1
-                
             
             if c == len(gas):
                 return start
             
             i+=1
             if i==len(gas):
-                if end: break
                 end = True
                 i=0
                 
