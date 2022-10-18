@@ -9,7 +9,8 @@ class Solution:
             for end in range(start+1, len(s)+1):
                 st = s[start:end]
 
-                if st == st[::-1]:
+                if st in dp or st == st[::-1]:
+                    dp[st] = True
                     temp.append(st)
                     helper(end, [*temp])
                     temp.pop()
