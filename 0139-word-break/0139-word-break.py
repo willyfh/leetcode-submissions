@@ -1,6 +1,7 @@
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         dp = [[0 for i in range(len(s)+1)] for j in range(len(s)+1)]
+        wordDict = set(wordDict)
         
         def helper(start):
             
@@ -16,7 +17,6 @@ class Solution:
                         return True
                     dp[start][end] = 1
             return False
-        
         
         return helper(0)
                     
