@@ -9,7 +9,7 @@ class Solution:
             
             for end in range(start+1, len(s)+1):
                 if dp[start][end] == 1:
-                    continue
+                    break
                 temp = s[start:end]
                 if temp in wordDict:
                     if helper(end):
