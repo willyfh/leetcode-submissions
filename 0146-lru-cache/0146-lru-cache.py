@@ -20,32 +20,30 @@ class LRUCache:
         else:
             node = self.m[key]
             self.remove(node)
-            self.add(node)
+            self.addToTail(node)
             return node.val
             
-        
     def put(self, key: int, value: int) -> None:
             if key not in self.m:
                 if len(self.m) >= self.capacity:
                     self.removeFromHead()
                 node = LinkedList(key, value)
-                self.add(node)
+                self.addToTail(node)
                 self.m[key] = node
             else:
                 self.remove(self.m[key])
                 self.m[key].val = value
-                self.add(self.m[key])
+                self.addToTail(self.m[key])
 
     def remove(self,node):
         node.prev.next = node.next
         node.next.prev = node.prev
         
-    def add(self,node):
+    def addToTail(self,node):
         self.tail.prev.next = node
         node.prev = self.tail.prev
         node.next = self.tail
         self.tail.prev = node
-        
         
     def removeFromHead(self):
         self.m.pop(self.head.next.key)
