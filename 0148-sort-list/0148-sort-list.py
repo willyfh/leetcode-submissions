@@ -41,15 +41,11 @@ class Solution:
                     right = right.next
                     temp = temp.next
                     
-            while left!=None:
-                temp.next = ListNode(left.val)
-                left = left.next
-                temp = temp.next
+            if left!=None:
+                temp.next = left
             
-            while right!=None:
-                temp.next = ListNode(right.val)
-                right = right.next
-                temp = temp.next
+            if right!=None:
+                temp.next = right
 
             return ret.next
         return mergesort(head)
