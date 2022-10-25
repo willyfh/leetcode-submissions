@@ -24,11 +24,11 @@ class Solution:
                 n -= (r * d)
                 n*=10
             if n in m:
-                ans = ans[0:1]+["."]+ans[1:m[n]+1] + ["("] + ans[m[n]+1:i+1] +[")"]
+                ans = ans[0:1]+["."]+ans[1:m[n]] + ["("] + ans[m[n]:] +[")"]
                 if neg:
                     ans.insert(0,"-")
                 return "".join(ans)
-            m[n] = i
+            m[n] = i+1
             i += 1
         if numerator % denominator !=0:
             ans = ans[0:1]+["."]+ans[1:]
