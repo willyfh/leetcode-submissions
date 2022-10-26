@@ -8,12 +8,10 @@ class Solution:
         arr[1] = False
         
 
-        ans =0 
         for i in range(2, n):
             if not arr[i]:
                 continue
             
-            ans += 1
             arr[i] = True
             # j = i*i
             # while j < n:
@@ -22,6 +20,6 @@ class Solution:
             for j in range(i*i, n, i):
                 arr[j] = False
 
-        return ans
+        return sum(arr)
 
     
