@@ -7,15 +7,21 @@ class Solution:
         arr[0] = False
         arr[1] = False
         
-        i = 2
+
+        ans =0 
         for i in range(2, n):
             if not arr[i]:
                 continue
             
+            ans += 1
             arr[i] = True
+            # j = i*i
+            # while j < n:
+            #     arr[j] = False
+            #     j += i
             for j in range(i*i, n, i):
-                    arr[j] = False
-                
+                arr[j] = False
 
-        return sum(arr)
-            
+        return ans
+
+    
