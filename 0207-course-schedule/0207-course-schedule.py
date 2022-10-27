@@ -5,12 +5,10 @@ class Solution:
         
         def helper(i, s):
             if v[i]:
-                s = set()
                 return True
             
             if prerequisites[i][1] not in d:
                 v[i] = True
-                s = set()
                 return True
             
             if i in s:
@@ -20,7 +18,6 @@ class Solution:
                 if not helper(x, s):
                     return False
             v[i] = True
-            s = set()
             return True     
             
         
