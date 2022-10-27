@@ -15,7 +15,7 @@ class Solution:
             for x in d[prerequisites[i][1]]:
                 if not helper(x, s):
                     return False
-                
+            s.remove(i)
             v[i] = True
             return True     
             
