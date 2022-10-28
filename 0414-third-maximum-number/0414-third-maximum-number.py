@@ -1,11 +1,7 @@
 class Solution:
     def thirdMax(self, nums: List[int]) -> int:
-        
-        
         ans = deque()
-        m = float("-inf")
         for n in nums:
-            m = max(m, n)
             if len(ans)==0:
                 ans.append(n)
             else:
@@ -19,11 +15,17 @@ class Solution:
                 elif n>ans[0] and n < ans[-1]:
                     if len(ans)==3 and n!=ans[1]:
                         if n > ans[1]:
-                            ans = deque([ans[1]]+[n]+[ans[-1]])
+                            ans.popleft()
+                            temp = ans.pop()
+                            ans.append(n)
+                            ans.append(temp)
                         else:
-                            ans = deque([n]+[ans[1]]+[ans[-1]])
+                            ans.popleft()
+                            ans.appendleft(n)
                     elif len(ans)==2:
-                        ans = deque([ans[0]]+[n]+[ans[-1]])
+                        temp = ans.pop()
+                        ans.append(n)
+                        ans.append(temp)
         return ans[0] if len(ans)==3 else ans[-1]
             
             
