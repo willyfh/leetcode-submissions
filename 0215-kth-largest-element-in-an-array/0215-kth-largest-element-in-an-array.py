@@ -6,12 +6,11 @@ class Solution:
             pivot = right
             temp_left = left
             
-            pivot_num = nums[pivot]
             right-=1
             while left<=right:
-                while nums[left] < pivot_num:
+                while nums[left] < nums[pivot]:
                     left += 1
-                while nums[right] > pivot_num:
+                while nums[right] > nums[pivot]:
                     right -= 1
                 
                 if left>=right:  
