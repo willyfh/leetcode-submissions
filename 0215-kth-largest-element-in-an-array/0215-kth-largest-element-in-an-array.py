@@ -1,12 +1,35 @@
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        heap = []
         
-        for n in nums:
-            if len(heap) == k:
-                if heap[0]<n:
-                    heappop(heap)
-                    heappush(heap, n)
-            else:
-                heappush(heap, n)
-        return heap[0]
+        
+        def helper(left, right):
+            
+            pivot = right
+            temp_left = left
+            
+            pivot_num = nums[pivot]
+            right-=1
+            while left<=right:
+                while nums[left] < pivot_num:
+                    left += 1
+                while nums[right] > pivot_num:
+                    right -= 1
+                
+                if left>=right:
+                    
+                    break
+
+                nums[left], nums[right] = nums[right], nums[left]
+                left+=1
+                right-=1
+                
+            nums[left], nums[pivot] = nums[pivot], nums[left]
+            
+            if left == (len(nums) - k):
+                return nums[left]
+            elif left < (len(nums) - k):
+                return helper(left+1, pivot)
+            else: # left > (len(nums) - k)
+                return helper(temp_left, left-1)
+            
+        return helper(0, len(nums)-1)
