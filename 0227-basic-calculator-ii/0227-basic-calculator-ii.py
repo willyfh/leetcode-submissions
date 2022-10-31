@@ -1,10 +1,7 @@
 class Solution:
     def calculate(self, s: str) -> int:
-        d = deque()
-        
-        
+        d = deque()        
         arr = []
-        
         temp = ""
         for c in s:
             if c == " ":
