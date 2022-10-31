@@ -20,7 +20,6 @@ class Solution:
         i = 0
         while i < (len(arr)):
             c = arr[i]
-
             if c == "*" or c == "/":
                 l = d.pop()
                 i+=1
