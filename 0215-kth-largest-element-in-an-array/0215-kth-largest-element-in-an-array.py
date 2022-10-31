@@ -1,7 +1,6 @@
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         
-        
         def helper(left, right):
             
             pivot = right
@@ -15,8 +14,7 @@ class Solution:
                 while nums[right] > pivot_num:
                     right -= 1
                 
-                if left>=right:
-                    
+                if left>=right:  
                     break
 
                 nums[left], nums[right] = nums[right], nums[left]
