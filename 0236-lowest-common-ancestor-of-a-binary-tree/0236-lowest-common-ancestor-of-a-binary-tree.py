@@ -15,7 +15,7 @@ class Solution:
             left = helper(node.left)
             right = helper(node.right)
             
-            if (left == p or left == q) and (right == p or right == q):
+            if (left != None) and (right != None):
                 return node
             elif node == p or node == q:
                 return node
