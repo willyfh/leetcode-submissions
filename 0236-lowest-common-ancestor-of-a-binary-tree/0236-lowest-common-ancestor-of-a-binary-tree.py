@@ -17,8 +17,6 @@ class Solution:
             
             if (left == p or left == q) and (right == p or right == q):
                 return node
-            elif (node == p and (left == q or right == q)) or (node == q and (left == 1 or right == q)):
-                return node
             elif node == p or node == q:
                 return node
             elif left !=None:
