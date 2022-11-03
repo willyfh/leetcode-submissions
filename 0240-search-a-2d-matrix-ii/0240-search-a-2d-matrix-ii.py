@@ -22,6 +22,4 @@ class Solution:
                 else:
                     y+=1
             
-            # print(matrix[i][j], "-", matrix[x][y])
-            
         return False
