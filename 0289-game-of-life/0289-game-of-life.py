@@ -4,7 +4,6 @@ class Solution:
         Do not return anything, modify board in-place instead.
         """
         
-        
         def countNeigh(x, y):
             c = 0
             for i in range(x-1, x+2):
@@ -16,9 +15,6 @@ class Solution:
             return c
         
         temp = [[0 for i in range(len(board[0]))] for j in range(len(board))]
-        
-        
-        
         
         
         for i in range(len(board)):
