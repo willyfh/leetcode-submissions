@@ -12,11 +12,9 @@ class Solution:
             if c <= amount:
                 q.append((c,1))
         
-           
         while len(q)>0:
             curr, lvl = q.popleft()
                     
-
             if curr==amount:
                 return lvl
                 
