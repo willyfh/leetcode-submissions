@@ -17,4 +17,3 @@ class Solution:
             else: # 2
                 nums[m], nums[h] = nums[h], nums[m]
                 h-=1
-            print(nums)
