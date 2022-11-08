@@ -14,6 +14,10 @@ class Solution:
         
         while len(q)>0:
             curr, lvl = q.popleft()
+            
+            if visited[curr]:
+                continue
+            visited[curr] = True
                     
             if curr==amount:
                 return lvl
@@ -21,7 +25,6 @@ class Solution:
             for c in coins:
                 
                 t = c + curr
-                if t <= amount and not visited[t]:
+                if t <= amount:
                     q.append((t, lvl+1))
-                    visited[t] = True    
         return -1
