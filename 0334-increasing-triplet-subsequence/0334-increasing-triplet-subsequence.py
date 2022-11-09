@@ -1,8 +1,8 @@
 class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:
         
-        temp = [nums[0]] # to store tripplet
-        
+        temp = deque() # to store tripplet
+        temp.append(nums[0])
         for i in range(1, len(nums)):
             if nums[i]>temp[-1]:
                 temp.append(nums[i])
