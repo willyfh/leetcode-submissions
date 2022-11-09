@@ -9,6 +9,8 @@ class Solution:
         ans = []
         
         for key in d:
-            heappush(ans, (-d[key], key))
+            heappush(ans, (d[key], key))
+            if len(ans)>k:
+                heappop(ans)
         
         return [heappop(ans)[1] for i in range(k)]
