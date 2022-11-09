@@ -26,21 +26,17 @@ class NestedIterator:
         self.nestedList = deque(nestedList)
     
     def next(self) -> int:
-        return self.ret
+        return self.nestedList.popleft().getInteger()
         
     def hasNext(self) -> bool:
-        if len(self.nestedList)==0:
-            return False
-        p = self.nestedList.popleft()
-        while not p.isInteger():
+        while len(self.nestedList)!=0 and not self.nestedList[0].isInteger():
+            p = self.nestedList.popleft()
             l = p.getList()
             for i in range(len(l)-1, -1, -1):
                 self.nestedList.appendleft(l[i])
             if len(self.nestedList)==0:
                 return False
-            p = self.nestedList.popleft()
-        self.ret = p
-        return True
+        return len(self.nestedList)!=0
 
 # Your NestedIterator object will be instantiated and called as such:
 # i, v = NestedIterator(nestedList), []
