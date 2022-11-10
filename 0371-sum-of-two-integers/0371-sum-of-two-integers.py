@@ -1,26 +1,11 @@
 import numpy
 class Solution:
     def getSum(self, a: int, b: int) -> int:
-        ans = 0
-        carry = 0
-        for i in range(16):
-            r = 1 << i
-            if a & r and b & r:
-                if carry == 1:
-                    ans = ans  | r
-                else:
-                    ans = ans & ~r
-                    carry = 1
-            elif a & r or b & r:
-                if carry == 1:
-                    ans = ans & ~r
-                else:
-                    ans = ans | r
-            else:
-                if carry == 1:
-                    ans = ans | r
-                    carry = 0
-                else:
-                    ans = ans & ~r
         
-        return numpy.int16(ans)
+        i =0
+        for i in range(16):
+            c = a & b # carry. 1+1 have carry
+            a = a ^ b # "addition". eg. 1+0= 1, 1+1=0, 0+0=0
+            b = c << 1 # shifting carry to the left
+        
+        return numpy.int16(a)
