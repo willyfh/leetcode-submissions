@@ -2,9 +2,6 @@ import numpy
 class Solution:
     def getSum(self, a: int, b: int) -> int:
         
-        neg = False
-        if (a <0 and b <0) or (a<0 and -a > b) or (b<0 and -b > a):
-            neg = True
         ans = 0
         remainder = 0
         for i in range(32):
