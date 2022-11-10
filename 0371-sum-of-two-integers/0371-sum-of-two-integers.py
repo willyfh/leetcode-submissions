@@ -3,7 +3,7 @@ class Solution:
     def getSum(self, a: int, b: int) -> int:
         ans = 0
         carry = 0
-        for i in range(32):
+        for i in range(16):
             r = 1 << i
             if a & r and b & r:
                 if carry == 1:
