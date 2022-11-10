@@ -24,5 +24,3 @@ class Solution:
                     ans = ans & ~r
         
         return numpy.int16(ans)
-                    
-             
