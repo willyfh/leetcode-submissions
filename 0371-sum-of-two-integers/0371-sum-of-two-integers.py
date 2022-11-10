@@ -2,10 +2,28 @@ import numpy
 class Solution:
     def getSum(self, a: int, b: int) -> int:
         
-        i =0
-        for i in range(16):
-            c = a & b # carry. 1+1 have carry
-            a = a ^ b # "addition". eg. 1+0= 1, 1+1=0, 0+0=0
-            b = c << 1 # shifting carry to the left
+        ans = 0
+        remainder = 0
+        for i in range(32):
+            r = 1 << i
+            if a & r and b & r:
+                if remainder == 1:
+                    ans = ans  | r
+                else:
+                    ans = ans & ~r
+                    remainder = 1
+            elif a & r or b & r:
+                if remainder == 1:
+                    ans = ans & ~r
+                else:
+                    ans = ans | r
+            else: # both zeros
+                if remainder == 1:
+                    ans = ans | r
+                    remainder = 0
+                else:
+                    ans = ans & ~r
         
-        return numpy.int16(a)
+        return numpy.int32(ans)
+                    
+             
