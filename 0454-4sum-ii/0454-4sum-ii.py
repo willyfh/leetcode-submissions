@@ -25,7 +25,6 @@ class Solution:
                 d4[x] = 0
             d4[x] += 1
         
-        
         ans = 0
         
         d5 = {}
@@ -34,7 +33,6 @@ class Solution:
                 if m+n not in d5:
                     d5[m+n] = 0
                 d5[m+n] += d1[m]*d2[n]
-        
         
         for m in d5.keys():
             for o in d3.keys():
