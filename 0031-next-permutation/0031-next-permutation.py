@@ -24,7 +24,14 @@ class Solution:
             j-=1
         
         # sort the remaining array, here I just use a simple sort algorithm with N^2 time complexity
-        for i in range(j, len(nums)):
-            for k in range(i+1, len(nums)):
-                if nums[i]>nums[k]:
-                    nums[i], nums[k] = nums[k], nums[i]
+        # for i in range(j, len(nums)):
+        #     for k in range(i+1, len(nums)):
+        #         if nums[i]>nums[k]:
+        #             nums[i], nums[k] = nums[k], nums[i]
+                    
+        # just simply reverse instead of sort. since the subarray already in decreasing order
+        n = len(nums)-1
+        while j < n:
+            nums[j], nums[n] = nums[n], nums[j]
+            j+=1
+            n-=1
