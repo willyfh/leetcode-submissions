@@ -7,6 +7,7 @@ class Solution:
             s = sum(arr)
             if s==target:
                 ans.append([*arr])
+                return
             elif s>target:
                 return
             
