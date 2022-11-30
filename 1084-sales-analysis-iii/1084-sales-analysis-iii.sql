@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+select A.product_id, B.product_name from Sales A left join Product B on A.product_id=B.product_id where A.product_id not in (select product_id from Sales where sale_date<'2019-01-01' or sale_date>'2019-03-31') group by A.product_id
