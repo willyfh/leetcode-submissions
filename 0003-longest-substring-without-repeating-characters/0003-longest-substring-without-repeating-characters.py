@@ -10,6 +10,4 @@ class Solution:
             else:
                 start = dic[s[i]]+1
                 dic[s[i]] = i
-                
-                
         return ans
