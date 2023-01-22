@@ -10,19 +10,19 @@ class Solution:
         fast = head
         
         i=0
-        while fast != None:
-            while i <n:
-                fast = fast.next
-                i+=1
-                continue
-            if fast == None: # the head is removed
+        while i <n:
+            fast = fast.next
+            i+=1
+            continue
+        if fast == None: # the head is removed
                 return slow.next
-            prev = slow
+        while fast.next != None:
+
             slow = slow.next
             fast = fast.next
         
                 
-        prev.next = slow.next
+        slow.next = slow.next.next
         
         return head
         
