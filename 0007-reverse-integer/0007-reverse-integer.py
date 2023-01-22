@@ -12,9 +12,10 @@ class Solution:
         while t != 0: 
             m = t % 10
             ans = 10*ans + m
-            if ans > ma or ans < mi: # this assume using long is allowed
-                return 0
+
             t = t // 10
         if neg:
             ans*=-1
+        if ans > ma or ans < mi:
+            return 0
         return ans
