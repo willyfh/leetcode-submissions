@@ -8,6 +8,7 @@ class Solution:
         if x < 0:
             neg = True
             x *= -1
+            
         t = x
         ans = 0
         while t > 0: 
