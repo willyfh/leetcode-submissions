@@ -14,7 +14,7 @@ class Solution:
 
             if c+nums[c]>=len(nums)-1:
                 return True
-            for i in range(c+1, c+nums[c]+1):
+            for i in range(c+nums[c], c, -1):
                 if i < len(nums) and not visited[i]:
                     q.append(i)
                     visited[i] = True                    
