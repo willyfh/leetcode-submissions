@@ -3,7 +3,7 @@ class Solution:
         ans = nums[0]
         temp = nums[0]
         for i in range(1, len(nums)):
-            if nums[i] + temp > 0 and nums[i]<nums[i]+temp:
+            if nums[i]<nums[i]+temp:
                 temp += nums[i]
             else:
                 temp = nums[i]
