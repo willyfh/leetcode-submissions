@@ -9,59 +9,35 @@ class Solution:
         
         if root == None:
             return []
-        
         q = deque()
         q.append(root)
         
-        toright = True
-        i=1
-        j =0
-        
+        right_dir = True
         ans = []
-        temp = []
-        
+        sublist=[]
         while len(q)>0:
-            if toright:
-                curr = q.popleft()
-                temp.append(curr.val)
-                i-=1
-                
-                if curr.left != None:
-                    q.append(curr.left)
-                    j+=1
-                
-                if curr.right != None:
-                    q.append(curr.right)
-                    j+=1
-                    
-                if i==0:
-                    toright=False
-                    ans.append([*temp])
-                    temp = []
-                    i=j
-                    j=0
-                    
+            q_size = len(q)
+            if right_dir:
+                for i in range(q_size):
+                    curr = q.popleft()
+                    sublist.append(curr.val)
+                    if curr.left!=None:
+                        q.append(curr.left)
+                    if curr.right!=None:
+                        q.append(curr.right)
+                right_dir = False
             else:
-                curr = q.pop()
-                temp.append(curr.val)
-                i-=1
-                
-                if curr.right != None:
-                    q.appendleft(curr.right)
-                    j+=1
-                    
-                if curr.left != None:
-                    q.appendleft(curr.left)
-                    j+=1
-                    
-                if i == 0:
-                    toright = True
-                    ans.append([*temp])
-                    temp = []
-                    i = j
-                    j=0
-                    
-                    
+                for i in range(q_size):
+                    curr = q.pop()
+                    sublist.append(curr.val)
+                    if curr.right!=None:
+                        q.appendleft(curr.right)
+                    if curr.left!=None:
+                        q.appendleft(curr.left)
+                        
+                right_dir = True
+            ans.append([*sublist])
+            sublist = []
         return ans
                 
                 
