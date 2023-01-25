@@ -13,8 +13,7 @@ class Solution:
                     if i==0:
                         first_row_zero = True
                     if j==0:
-                        first_col_zero = True
-                        
+                        first_col_zero = True        
         for i in range(1,len(matrix)):
             for j in range(1,len(matrix[0])):
                 if matrix[0][j]==0 or matrix[i][0]==0:
