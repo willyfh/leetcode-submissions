@@ -4,9 +4,6 @@ class Solution:
         Do not return anything, modify board in-place instead.
         """
         
-        
-        flipped = [[True] * len(board[0]) for i in range(len(board))]
-        
         def mark(i, j):
             if i <0 or j <0 or i==len(board) or j==len(board[0]):
                 return
