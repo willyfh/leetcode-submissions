@@ -6,52 +6,79 @@ class LinkedList:
         self.next = None
 
 class LRUCache:
+
     def __init__(self, capacity: int):
-        self.m = {}
         self.capacity = capacity
-        self.head = LinkedList(0, 0)
-        self.tail = LinkedList(-1, -1)
+        self.data = {}
+        self.head = LinkedList(0,0)
+        self.tail = LinkedList(-1,-1)
         self.head.next = self.tail
         self.tail.prev = self.head
 
-    def get(self, key: int) -> int:
-        if key not in self.m:
-            return -1
-        else:
-            node = self.m[key]
-            self.remove(node)
-            self.addToTail(node)
-            return node.val
+    def get(self, k: int) -> int:
+        if k in self.data:
             
-    def put(self, key: int, value: int) -> None:
-            if key not in self.m:
-                if len(self.m) >= self.capacity:
-                    self.removeFromHead()
-                node = LinkedList(key, value)
-                self.addToTail(node)
-                self.m[key] = node
-            else:
-                self.remove(self.m[key])
-                self.m[key].val = value
-                self.addToTail(self.m[key])
+            if self.data[k].next != None:
+                self.data[k].next.prev = self.data[k].prev
+            if self.data[k].prev != None:
+                self.data[k].prev.next = self.data[k].next
+                
+            self.data[k].next = None
+            self.data[k].prev = None
+            
+            self.data[k].next = self.head.next
+            self.data[k].prev = self.head
+            
+            self.head.next.prev = self.data[k]
+            
+            self.head.next = self.data[k]
+            
+            return self.data[k].val
+        else:
+            return -1
 
-    def remove(self,node):
-        node.prev.next = node.next
-        node.next.prev = node.prev
-        
-    def addToTail(self,node):
-        self.tail.prev.next = node
-        node.prev = self.tail.prev
-        node.next = self.tail
-        self.tail.prev = node
-        
-    def removeFromHead(self):
-        self.m.pop(self.head.next.key)
-        self.head.next = self.head.next.next
-        self.head.next.prev = self.head
-        
-        
-        
+    def put(self, k: int, value: int) -> None:
+        if k in self.data:
+            
+            self.data[k].val = value
+            
+            if self.data[k].next != None:
+                self.data[k].next.prev = self.data[k].prev
+            if self.data[k].prev != None:
+                self.data[k].prev.next = self.data[k].next
+                
+            self.data[k].next = None
+            self.data[k].prev = None
+            
+            self.data[k].next = self.head.next
+            self.data[k].prev = self.head
+            self.head.next.prev = self.data[k]
+            self.head.next = self.data[k]
+            
+        else:
+            if len(self.data)<self.capacity:
+                node = LinkedList(k, value)
+                node.next = self.head.next
+                node.prev = self.head
+                
+                self.head.next.prev = node
+                self.head.next = node
+                
+                self.data[k] = node
+            else:
+                node = LinkedList(k, value)
+                
+                node.next = self.head.next
+                node.prev = self.head
+                
+                self.head.next.prev = node
+                self.head.next = node
+                
+                self.data[k] = node
+                self.data.pop(self.tail.prev.key)
+                self.tail.prev.prev.next = self.tail
+                self.tail.prev = self.tail.prev.prev
+                
 
 # Your LRUCache object will be instantiated and called as such:
 # obj = LRUCache(capacity)
