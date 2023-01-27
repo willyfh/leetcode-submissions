@@ -6,46 +6,47 @@
 class Solution:
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
+        def merge(left, right):
+            node = ListNode(0)
+            result = node
+            while left!=None and right!=None:
+                if left.val < right.val:
+                    node.next = left
+                    left = left.next
+                else:
+                    node.next = right
+                    right = right.next
+                node = node.next
+                
+            if left !=None:
+                node.next = left
+            if right !=None:
+                node.next = right
+                
+            return result.next
+        
         def mergesort(node):
             if node==None or node.next == None:
                 return node
             
-            left = node
-            right = node
+            slow = node
+            fast = node
             
-            prev = left
-            while right!=None and right.next!=None:
-                prev = left
-                left = left.next
-                right = right.next.next
+            while fast != None and fast.next!=None:
+                prev = slow
+                slow = slow.next
+                fast = fast.next.next
             
             prev.next = None
-            right = left
-            left = node
-
+            right = slow
+            left = node 
+            
             left = mergesort(left)
             right = mergesort(right)
             
             return merge(left, right)
-        
-        def merge(left, right):
-            temp = ListNode()
-            ret = temp
-            while left!=None and right!=None:
-                if left.val < right.val:
-                    temp.next = ListNode(left.val)
-                    left = left.next
-                    temp = temp.next
-                else:
-                    temp.next = ListNode(right.val)
-                    right = right.next
-                    temp = temp.next
-                    
-            if left!=None:
-                temp.next = left
             
-            if right!=None:
-                temp.next = right
-
-            return ret.next
         return mergesort(head)
+            
+
+        
