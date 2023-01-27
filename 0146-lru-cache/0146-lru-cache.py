@@ -18,14 +18,9 @@ class LRUCache:
     def get(self, k: int) -> int:
         if k in self.data:
             
-            if self.data[k].next != None:
-                self.data[k].next.prev = self.data[k].prev
-            if self.data[k].prev != None:
-                self.data[k].prev.next = self.data[k].next
+            self.data[k].next.prev = self.data[k].prev
+            self.data[k].prev.next = self.data[k].next
                 
-            self.data[k].next = None
-            self.data[k].prev = None
-            
             self.data[k].next = self.head.next
             self.data[k].prev = self.head
             
@@ -47,9 +42,6 @@ class LRUCache:
             if self.data[k].prev != None:
                 self.data[k].prev.next = self.data[k].next
                 
-            self.data[k].next = None
-            self.data[k].prev = None
-            
             self.data[k].next = self.head.next
             self.data[k].prev = self.head
             self.head.next.prev = self.data[k]
