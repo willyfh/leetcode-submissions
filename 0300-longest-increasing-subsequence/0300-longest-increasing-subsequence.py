@@ -9,4 +9,15 @@ class Solution:
                     
             ans = max(ans, dp[i])
         return ans
+#         @cache
+#         def helper(i, prev):
+#             if i>=len(nums):
+#                 return 0
+#             if nums[i] > prev:
+#                 l = helper(i+1, prev)
+#                 r = 1+helper(i+1, nums[i])
+#                 return max(l, r)
+#             else:
+#                 return helper(i+1, prev)
             
+#         return helper(0, -10**5)
