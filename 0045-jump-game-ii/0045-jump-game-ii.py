@@ -1,31 +1,18 @@
 class Solution:
     def jump(self, nums: List[int]) -> int:
+        if len(nums)==1:
+            return 0
+        q = deque()
         
+        q.append((0,0))
         
-        ## dp solution, n^2 ?
-        # dp = [float("inf")] * len(nums)
-        # dp[0] = 0
-        # for i in range(len(nums)):
-        #     for j in range(1, nums[i]+1):
-        #         if i+j < len(nums) and dp[i]+1 < dp[i+j]:
-        #             dp[i+j] = dp[i]+1
-        #             if i+j==len(nums)-1:
-        #                 return dp[-1]
-        # return dp[-1] # handle [0]
-        
-        
-        left = 0
-        right = 0
-        
-        
-        m = 0 # maxreachable
-        level = 0
-        while right < len(nums)-1:
-            m = max(m, left+nums[left])
+        visited = [0]*len(nums)
+        while len(q) > 0:
+            i, lvl = q.popleft()
             
-            if left == right:
-                right = m
-                level += 1
-            left += 1
-            
-        return level
+            for j in range(i+1, i+nums[i]+1):
+                if j == len(nums)-1:
+                    return lvl + 1
+                if visited[j] == 0:
+                    q.append((j, lvl+1))
+                    visited[j] = 1
