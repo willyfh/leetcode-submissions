@@ -10,7 +10,6 @@ class Solution:
         dp1[0] = nums[0]
         dp1[1] = max(nums[0], nums[1])
         
-        
         # for index 1 until n-1 (index 0 is ignored)
         dp2 = [0]*len(nums)
         dp2[0] = 0
