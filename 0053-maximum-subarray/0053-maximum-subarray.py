@@ -3,9 +3,8 @@ class Solution:
         ans = nums[0]
         temp = nums[0]
         for i in range(1, len(nums)):
-            if nums[i]<nums[i]+temp:
-                temp += nums[i]
-            else:
-                temp = nums[i]
+            temp = max(nums[i], nums[i]+temp)
             ans = max(ans, temp)
+            
         return ans
+            
