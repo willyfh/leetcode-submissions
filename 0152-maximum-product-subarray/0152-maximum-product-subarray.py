@@ -1,24 +1,14 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         
+        mi = nums[0]
+        ma = nums[0]
         ans = nums[0]
-        
-        i=0
-        j=len(nums)-1
-        
-        fromleft = 1
-        fromright = 1
-        while i <len(nums):
-            fromleft *= nums[i]
-            fromright *= nums[j]
-            ans = max(ans, fromleft)
-            ans = max(ans, fromright)
+        for i in range(1, len(nums)):
+            candidates = [nums[i], ma*nums[i], mi*nums[i]]
+            ma = max(candidates)
+            mi = min(candidates)
+            ans = max(ans, ma)
             
-            if fromleft == 0:
-                fromleft=1
-            if fromright==0:
-                fromright=1
-            i+=1
-            j-=1
         return ans
-            
+        
