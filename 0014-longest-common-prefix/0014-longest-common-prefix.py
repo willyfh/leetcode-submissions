@@ -9,7 +9,5 @@ class Solution:
                     break
                 if strs[i][j]!=prefix[j]:
                     prefix = prefix[:j]
-                    break
-            
-                    
+                    break                    
         return prefix
