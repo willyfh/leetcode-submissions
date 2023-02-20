@@ -3,20 +3,13 @@ class Solution:
 
         prefix = strs[0]
         for i in range(1, len(strs)):
-            cont = False
-            for j in range(len(strs[i])):
-                if j>=len(prefix):
-                    break
-                if prefix[j] == strs[i][j]:
-                    cont =True
-                    continue
-                else:
+            for j in range(len(prefix)):
+                if j == len(strs[i]):
                     prefix = prefix[:j]
                     break
-            if cont:
-                prefix = prefix[:j+1]
-            if len(strs[i])==0:
-                prefix = ""
+                if strs[i][j]!=prefix[j]:
+                    prefix = prefix[:j]
+                    break
             
                     
         return prefix
