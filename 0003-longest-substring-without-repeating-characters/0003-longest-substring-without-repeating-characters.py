@@ -4,11 +4,9 @@ class Solution:
         m = {}
         ans = 0
         for i in range(len(s)):
-            if s[i] not in m or m[s[i]]<start:
-                m[s[i]] = i
+            if s[i] not in m or m[s[i]]<start:  
                 ans = max(ans, i-start+1)
             else:
                 start = m[s[i]]+1
-                m[s[i]] = i
-                
+            m[s[i]] = i                
         return ans
