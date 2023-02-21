@@ -5,45 +5,31 @@
 #         self.next = next
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-            ans = ListNode()
-            head = ans
-            rem = 0
-            while l1 != None and l2 != None:
-                newNode = ListNode()
-                add = l1.val + l2.val + rem
-                addVal = add % 10
-                rem = add // 10
-                newNode.val = addVal
-                
-                ans.next = newNode
-                ans = ans.next
-                l1 = l1.next
-                l2  = l2.next
-                
-            while l1 != None:
-                newNode = ListNode()
-                add  = l1.val + rem
-                addVal = add % 10
-                rem = add // 10
-                newNode.val = addVal
-                
-                ans.next = newNode
-                ans = ans.next
+        ans = head = ListNode()
+        s = 0
+        c = 0
+        while l1!=None or l2!=None:
+            if l1!=None:
+                s += l1.val
                 l1 = l1.next
                 
-            while l2 != None:
-                newNode = ListNode()
-                add  = l2.val + rem
-                addVal = add % 10
-                rem = add // 10
-                newNode.val = addVal
-                
-                ans.next = newNode
-                ans = ans.next
+            if l2!=None:
+                s += l2.val
                 l2 = l2.next
-                
-            if rem!=0:
-                newNode = ListNode(rem)
-                ans.next = newNode
-                
-            return head.next
+            s += c
+    
+            if s > 9 :
+                c = 1
+                s -= 10    
+            else:
+                c =0
+            
+            ans.next = ListNode(s)
+            ans = ans.next
+            s = 0
+            
+            
+        if c==1:
+            ans.next = ListNode(1)
+            
+        return head.next
