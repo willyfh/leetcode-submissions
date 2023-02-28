@@ -4,8 +4,7 @@ class Solution:
         s = sum(nums)
         t = 0
         for i in range(len(nums)):
-            s-=nums[i]
-            if t == s:
+            if t == s-t-nums[i]:
                 return i
             t+=nums[i]
             
