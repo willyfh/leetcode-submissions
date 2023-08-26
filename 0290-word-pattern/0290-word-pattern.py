@@ -6,15 +6,16 @@ class Solution:
         if len(pattern)!=len(s_arr):
             return False
         
-        m = {}
-        n = {}
+        if len(set(pattern)) != len(set(s_arr)):
+            return False
         
-        for i in range(len(pattern)):
+        m = {}
+        
+        for i in range(len(s_arr)):
             
-            if pattern[i] in m and m[pattern[i]] != s_arr[i] or pattern[i] not in m and s_arr[i] in n:
+            if s_arr[i] in m and m[s_arr[i]] != pattern[i]:
                 
                 return False
-            m[pattern[i]] = s_arr[i]
-            n[s_arr[i]] =  1
+            m[s_arr[i]] = pattern[i]
             
         return True
