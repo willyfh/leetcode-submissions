@@ -1,7 +1,6 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
-        arr = s.split(" ")
-        arr = [a for a in arr if a != ""]        
+        arr = s.split()
         i = 0 
         j = len(arr)-1
         
