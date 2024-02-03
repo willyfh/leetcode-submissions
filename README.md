@@ -1,2 +1,2 @@
-# leetcode
-Collection of LeetCode questions created using [LeetHub](https://github.com/QasimWani/LeetHub)
+# leetcode submissions
+A collection of my LeetCode submissions created using [LeetHub](https://github.com/QasimWani/LeetHub)
