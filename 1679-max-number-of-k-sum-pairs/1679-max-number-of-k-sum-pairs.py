@@ -4,7 +4,6 @@ class Solution:
         h = {}
         
         for i in range(len(nums)):
-            
             if nums[i] not in h:
                 h[nums[i]] = 0
             h[nums[i]] += 1
@@ -19,6 +18,5 @@ class Solution:
                 else:
                     if h[n]>1:
                         c+=1
-                        h[n]-= 2
-                        
+                        h[n]-= 2   
         return c
