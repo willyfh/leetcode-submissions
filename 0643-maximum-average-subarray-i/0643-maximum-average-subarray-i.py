@@ -4,13 +4,13 @@ class Solution:
         s = 0
         
         s = sum(nums[:k])
-        ans = s/k
+        ans = s
         
         for i in range(len(nums)-k):
             
             s -= nums[i]
             s += nums[i+k]
             
-            ans = max(ans, s / k)
+            ans = max(ans, s)
             
-        return ans
+        return ans/k
