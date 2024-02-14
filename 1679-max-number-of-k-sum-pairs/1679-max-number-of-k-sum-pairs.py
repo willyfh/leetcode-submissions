@@ -1,22 +1,20 @@
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
         
-        h = {}
+        nums.sort()
         
-        for i in range(len(nums)):
-            if nums[i] not in h:
-                h[nums[i]] = 0
-            h[nums[i]] += 1
-            
-        c = 0
-        for n in nums:
-            if k-n in h and h[k-n]>0 and h[n]>0:
-                if k-n!=n:
-                    c+=1
-                    h[n]-= 1
-                    h[k-n]-=1
-                else:
-                    if h[n]>1:
-                        c+=1
-                        h[n]-= 2   
-        return c
+        
+        i = 0
+        j = len(nums)-1
+        
+        ans = 0
+        while i < j:
+            if nums[i]+nums[j] == k:
+                ans+=1
+                i+=1
+                j-=1
+            elif nums[i]+nums[j] < k:
+                i+=1
+            else:
+                j-=1
+        return ans
