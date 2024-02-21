@@ -1,39 +1,21 @@
 class Solution:
     def closeStrings(self, word1: str, word2: str) -> bool:
         
-        hashmap1 = {}
-        hashmap2 = {}
         
-        hashmap_val1 = {}
+        chars1 = [0]*26
+        chars2 = [0]*26
         
-        n = len(word1)
-        for char in word1:
-            if char not in hashmap1:
-                hashmap1[char] = 0
-            hashmap1[char] += 1
+        for c in word1:
+            chars1[ord(c) - ord('a')] += 1
             
-        for char in word2:
-            if char not in hashmap2:
-                hashmap2[char] = 0
-            hashmap2[char] += 1
+        for c in word2:
+            chars2[ord(c) - ord('a')] += 1
             
-            if char not in hashmap1:
+        for i in range(26):
+            if (chars1[i] == 0 and chars2[i]>0) or (chars2[i] == 0 and chars1[i]>0):
                 return False
             
-        for k in hashmap1:
-            if k not in hashmap2:
-                return False
-            if hashmap1[k] not in hashmap_val1:
-                hashmap_val1[hashmap1[k]] = 0
-            hashmap_val1[hashmap1[k]] += 1
-            
-        
-        for v in hashmap2.values():
-            if v not in hashmap_val1:
-                return False
-            hashmap_val1[v] -= 1
-            n -= v 
-            if hashmap_val1[v] <0:
-                return False
+        chars1.sort()
+        chars2.sort()
 
-        return n==0
+        return chars1 == chars2
