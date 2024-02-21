@@ -4,6 +4,8 @@ class Solution:
         hashmap1 = {}
         hashmap2 = {}
         
+        hashmap_val1 = {}
+        
         
         for char in word1:
             if char not in hashmap1:
@@ -18,21 +20,23 @@ class Solution:
         for k in hashmap1:
             if k not in hashmap2:
                 return False
+            if hashmap1[k] not in hashmap_val1:
+                hashmap_val1[hashmap1[k]] = 0
+            hashmap_val1[hashmap1[k]] += 1
             
         for k in hashmap2:
             if k not in hashmap1:
                 return False
+
+        for v in hashmap2.values():
+            if v not in hashmap_val1:
+                return False
+            hashmap_val1[v] -= 1
+            if hashmap_val1[v] <0:
+                return False
             
-        values1 = list(hashmap1.values())
-        values2 = list(hashmap2.values())
-        values1.sort()
-        values2.sort()
-        
-        if len(values1) != len(values2):
-            return False
-        
-        for i in range(len(values1)):
-            if values1[i] != values2[i]:
-                return False        
+        for k in hashmap_val1:
+            if hashmap_val1[k] >0:
+                return False
         
         return True
