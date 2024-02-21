@@ -6,7 +6,7 @@ class Solution:
         
         hashmap_val1 = {}
         
-        
+        n = len(word1)
         for char in word1:
             if char not in hashmap1:
                 hashmap1[char] = 0
@@ -27,16 +27,13 @@ class Solution:
                 hashmap_val1[hashmap1[k]] = 0
             hashmap_val1[hashmap1[k]] += 1
             
-
+        
         for v in hashmap2.values():
             if v not in hashmap_val1:
                 return False
             hashmap_val1[v] -= 1
+            n -= v 
             if hashmap_val1[v] <0:
                 return False
-            
-        for k in hashmap_val1:
-            if hashmap_val1[k] >0:
-                return False
-        
-        return True
+
+        return n==0
