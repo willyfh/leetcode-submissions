@@ -17,6 +17,9 @@ class Solution:
                 hashmap2[char] = 0
             hashmap2[char] += 1
             
+            if char not in hashmap1:
+                return False
+            
         for k in hashmap1:
             if k not in hashmap2:
                 return False
@@ -24,9 +27,6 @@ class Solution:
                 hashmap_val1[hashmap1[k]] = 0
             hashmap_val1[hashmap1[k]] += 1
             
-        for k in hashmap2:
-            if k not in hashmap1:
-                return False
 
         for v in hashmap2.values():
             if v not in hashmap_val1:
