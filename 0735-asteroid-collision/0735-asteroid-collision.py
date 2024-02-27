@@ -4,10 +4,8 @@ class Solution:
         d = deque()
         
         for i in range(0, len(asteroids)):
-            if len(d)==0:
-                d.append(asteroids[i])
-                continue
-            if not(asteroids[i] < 0 and d[-1] > 0):
+
+            if len(d)==0 or not(asteroids[i] < 0 and d[-1] > 0):
                 d.append(asteroids[i])
             else:
     
