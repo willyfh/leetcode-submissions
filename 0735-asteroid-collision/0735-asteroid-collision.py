@@ -2,9 +2,8 @@ class Solution:
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
         
         d = deque()
-        d.append(asteroids[0])
         
-        for i in range(1, len(asteroids)):
+        for i in range(0, len(asteroids)):
             if len(d)==0:
                 d.append(asteroids[i])
                 continue
