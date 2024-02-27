@@ -12,13 +12,11 @@ class Solution:
                 while len(d)>0 and d[-1] > 0 and d[-1] < abs(asteroids[i]):
                     d.pop()
             
-                if len(d)>0:
+                if len(d) == 0 or d[-1]<0:
+                    d.append(asteroids[i])
+                else:
                     if d[-1] == abs(asteroids[i]):
                         d.pop()
-                    elif d[-1]<0:
-                        d.append(asteroids[i])
-                else:
-                    d.append(asteroids[i])
 
                 
         return d
