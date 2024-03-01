@@ -6,17 +6,30 @@
 class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
         
-        reverse = copy.deepcopy(head)
+        slow = head
+        fast = head
+        
+        while fast.next != None and fast.next.next !=None:
+            slow = slow.next
+            fast = fast.next.next
+            
+        second = slow.next
+        
+        slow = head
         prev = None
-        while reverse!=None:
-            next = reverse.next
-            reverse.next = prev
-            prev = reverse
-            reverse =next
+        
+        while slow!=second:
+            next = slow.next
+            slow.next = prev
+            prev = slow
+            slow = next
+        
+        first = prev
+        
         ans = 0
-        reverse = prev
-        while head != None:
-            ans = max(ans, head.val+reverse.val) 
-            head = head.next
-            reverse = reverse.next
+        while second!=None:
+            ans = max(ans, first.val + second.val)
+            first = first.next
+            second = second.next
+            
         return ans
