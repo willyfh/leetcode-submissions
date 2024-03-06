@@ -7,27 +7,30 @@
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
         
-        ans = [0]
+        self.ans = 0
         
-        def pathSumHelper(node, target):
-            
+        cache = {0: 1}
+             
+        def pathSumHelper(node, currSum):
             if node == None:
                 return
+            currSum += node.val
             
-            computeAns(node, target)
+            oldSum = currSum - targetSum
+            
+            if oldSum in cache:
+                self.ans += cache[oldSum]
                 
-            pathSumHelper(node.left, target)
-            pathSumHelper(node.right, target)
-            
-        def computeAns(node, target):
-            if node == None:
-                return
-            if node.val == target:
-                ans[0] += 1
+            if currSum not in cache:
+                cache[currSum] = 1
+            else:
+                cache[currSum] += 1
                 
-            computeAns(node.left, target-node.val)
-            computeAns(node.right, target-node.val)
+            pathSumHelper(node.left, currSum)
+            pathSumHelper(node.right, currSum)
+
+            cache[currSum] -= 1
+
             
-        
-        pathSumHelper(root, targetSum)
-        return ans[0]
+        pathSumHelper(root, 0)
+        return self.ans
