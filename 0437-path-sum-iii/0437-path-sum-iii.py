@@ -5,25 +5,29 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def __init__(self):
-        self.d = []
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
-        if root is None:
-            return 0
-
-        self.d.append(root.val)
-        paths, curr_sum = 0, sum(self.d)
-
-        for i in range(len(self.d)):
-            if curr_sum == targetSum:
-                paths += 1
-
-            curr_sum -= self.d[i]
         
-        leftPaths = self.pathSum(root.left, targetSum)
-        rightPaths = self.pathSum(root.right, targetSum)
-
-        self.d.pop()
-        return paths + leftPaths + rightPaths
-    
-    
+        ans = [0]
+        
+        def pathSumHelper(node, target):
+            
+            if node == None:
+                return
+            
+            computeAns(node, target)
+                
+            pathSumHelper(node.left, target)
+            pathSumHelper(node.right, target)
+            
+        def computeAns(node, target):
+            if node == None:
+                return
+            if node.val == target:
+                ans[0] += 1
+                
+            computeAns(node.left, target-node.val)
+            computeAns(node.right, target-node.val)
+            
+        
+        pathSumHelper(root, targetSum)
+        return ans[0]
