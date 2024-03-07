@@ -5,29 +5,31 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def __init__(self):
-        self.ans = 0
+
 
     def longestZigZag(self, root: Optional[TreeNode]) -> int:
-       
-        def helper(node, direction, currLength):
-            if node == None:
-                return
-                        
-            self.ans = max(self.ans, currLength)
-            
-            if direction=='r':
-                helper(node.right, "l", currLength+1)
-                helper(node.left, "r", 1)
-            else:
-                helper(node.left, "r", currLength+1)
-                helper(node.right, "l", 1)
-                
         
+        self.ans = 0
         if root == None:
             return 0
         
-        helper(root.left, "r", 1)
-        helper(root.right, "l", 1)
+        self.helper(root.left, "r", 0)
+        self.helper(root.right, "l", 0)
         
         return self.ans
+    
+    def helper(self, node, direction, currLength):
+        
+        if node == None:
+            return
+        
+        currLength += 1
+        
+        self.ans = max(self.ans, currLength)
+
+        if direction=='r':
+            self.helper(node.right, "l", currLength)
+            self.helper(node.left, "r", 0)
+        else:
+            self.helper(node.left, "r", currLength)
+            self.helper(node.right, "l", 0)
