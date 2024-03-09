@@ -11,32 +11,7 @@ class Solution:
             return None
         
         if root.val ==key:
-            temp = root.right
-            prev = temp
-            if temp:
-                while temp.left:
-                    prev = temp
-                    temp = temp.left
-                prev.left= None
-            if not temp:
-                return root.left
-            else:
-                
-                temp.left = root.left
-                root.left = None
-                
-                if temp == root.right:
-                    return temp
-                if temp.right is None:
-                    temp.right = root.right
-                    return temp
-
-                temp2 = temp.right
-                while temp2.right:
-                
-                    temp2 = temp2.right
-                temp2.right = root.right
-                return temp
+            return self.helper(root)
             
         left, right = root.left, root.right
         if key < root.val:
@@ -51,4 +26,31 @@ class Solution:
         return root
             
         
+    def helper(self, root):
+        temp = root.right
+        prev = temp
+        if temp:
+            while temp.left:
+                prev = temp
+                temp = temp.left
+            prev.left= None
+        if not temp:
+            return root.left
+        else:
+
+            temp.left = root.left
+            root.left = None
+
+            if temp == root.right:
+                return temp
+            if temp.right is None:
+                temp.right = root.right
+                return temp
+
+            temp2 = temp.right
+            while temp2.right:
+
+                temp2 = temp2.right
+            temp2.right = root.right
+            return temp
             
