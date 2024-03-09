@@ -5,26 +5,21 @@ class Solution:
         self.visited = {}
         self.ans = 0
         n = len(isConnected)
+        
         for i in range(n):
-            for j in range(i, n):
-                if (i, j) in self.visited or (j, i) in self.visited or isConnected[i][j] == 0 or isConnected[j][i] == 0 :
-                    continue
-                    
-                self.ans += 1
-                self.visit_province((i,j), isConnected)
+            if i in self.visited:
+                continue
+            self.ans +=1
+            self.visit_province(i, isConnected)
                 
         return self.ans
                 
-    def visit_province(self, tup, isConnected):
-        i,j = tup
-        self.visited[(i,j)] = 1
-        self.visited[(j,i)] = 1 
+    def visit_province(self, i, isConnected):
         
-        for k,v in enumerate(isConnected[j]):
-            if (j,k) in self.visited or (k,j) in self.visited or isConnected[j][k] == 0 or isConnected[k][j] == 0:
+        self.visited[i] = 1
+        
+        for j,v in enumerate(isConnected[i]):
+            if j in self.visited or v == 0:
                 continue
-            
-            self.visited[(j,k)] = 1
-            self.visited[(k,j)] = 1
-            
-            self.visit_province((j,k), isConnected)
+                        
+            self.visit_province(j, isConnected)
