@@ -21,7 +21,7 @@ class Solution:
         self.visited[(j,i)] = 1 
         
         for k,v in enumerate(isConnected[j]):
-            if (j,k) in self.visited or isConnected[j][k] == 0:
+            if (j,k) in self.visited or (k,j) in self.visited or isConnected[j][k] == 0 or isConnected[k][j] == 0:
                 continue
             
             self.visited[(j,k)] = 1
