@@ -7,7 +7,7 @@ class Solution:
         n = len(isConnected)
         for i in range(n):
             for j in range(i, n):
-                if (i, j) in self.visited or isConnected[i][j] == 0 :
+                if (i, j) in self.visited or (j, i) in self.visited or isConnected[i][j] == 0 or isConnected[j][i] == 0 :
                     continue
                     
                 self.ans += 1
