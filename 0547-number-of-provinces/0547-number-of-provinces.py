@@ -18,11 +18,13 @@ class Solution:
     def visit_province(self, tup, isConnected):
         i,j = tup
         self.visited[(i,j)] = 1
-        # visited[(j,i)] = 1 
+        self.visited[(j,i)] = 1 
         
         for k,v in enumerate(isConnected[j]):
             if (j,k) in self.visited or isConnected[j][k] == 0:
                 continue
             
             self.visited[(j,k)] = 1
+            self.visited[(k,j)] = 1
+            
             self.visit_province((j,k), isConnected)
