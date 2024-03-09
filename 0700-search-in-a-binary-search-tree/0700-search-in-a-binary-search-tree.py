@@ -10,10 +10,10 @@ class Solution:
             return root
         
         left, right = None, None
-        if root.left:
+        if root.left and val < root.val:
             left = self.searchBST(root.left, val)
             
-        if not left and root.right:
+        if root.right and val>=root.val:
             right = self.searchBST(root.right, val)
             
         return left if left else right
