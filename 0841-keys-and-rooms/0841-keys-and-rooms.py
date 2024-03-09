@@ -1,29 +1,20 @@
 class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
         
-        visited = {}
-        q = deque()
+        self.visited = {}
+        
+        self.helper(rooms, 0)
+        
+        return len(self.visited) == len(rooms)
         
         
-        q.append(0)
+    def helper(self, rooms, i):              
         
-        while len(q) > 0:
-            
-            curr = q.popleft()
-            
-            visited[curr] = 1
-            
-            for i in rooms[curr]:
-                
-                if i in visited:
-                    continue
-                visited[i] = 1
-                q.append(i)
-                
-        return len(visited) == len(rooms)
-                
-                
-                
-                
-            
+        if i in self.visited:
+            return
+        self.visited[i] = 1
+        for j in rooms[i]:
+            if j in self.visited:
+                continue            
+            self.helper(rooms, j)
             
