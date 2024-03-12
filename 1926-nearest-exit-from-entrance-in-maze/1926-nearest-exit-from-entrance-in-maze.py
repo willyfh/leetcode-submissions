@@ -19,8 +19,6 @@ class Solution:
             num_level = len(q)
             for k in range(num_level):
                 i, j = q.popleft()
-                if (i, j) in visited:
-                    continue
                 visited.add((i, j))
 
                 # check exit
@@ -35,6 +33,7 @@ class Solution:
                     # move to empty cell
                     if next_i>=0 and next_i<m and next_j>=0 and next_j<n and maze[next_i][next_j] == '.':
                         q.append((next_i, next_j))
+                        visited.add((next_i, next_j))
                         
             step += 1
             
