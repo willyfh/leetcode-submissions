@@ -33,7 +33,6 @@ class Solution:
             minute += 1
             for k in range(num_level):
                 i, j = q.popleft()
-                grid[i][j] = 2
 
                 num_fresh -= 1
                 
@@ -43,7 +42,7 @@ class Solution:
                     if next_i >=0 and next_i <m and next_j>=0 and next_j <n:
                         if grid[next_i][next_j] == 1 and (next_i, next_j) not in visited:
                             q.append((next_i, next_j))
-                            grid[next_i][next_j] = 2
+                            visited.add((next_i, next_j))
                             
         if num_fresh>0:
             return -1
