@@ -38,8 +38,6 @@ class Solution:
                 else:
                     left+=1
                     c = heappop(heap_left)
-                    if left<right:
-                        heappush(heap_left, costs[left])
             total += c
             
             
