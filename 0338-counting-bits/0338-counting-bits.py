@@ -6,7 +6,7 @@ class Solution:
         for i in range(1, n+1):
             
             temp = 0
-            for j in range(32):
+            for j in range(17):
                 temp+= i&1
                 i = i >> 1
             ans.append(temp)
