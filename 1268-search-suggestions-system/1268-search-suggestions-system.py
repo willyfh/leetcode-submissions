@@ -20,6 +20,8 @@ class Trie:
         
         outs = []
         def helper(d, pref):
+            if len(outs)==3:
+                return
             if '-' in d:
                 outs.append(pref)
             
