@@ -2,7 +2,7 @@ class Solution:
     def minFlips(self, a: int, b: int, c: int) -> int:
         
         ans = 0
-        for i in range(32):
+        for i in range(31):
             check_a = a & 1
             check_b = b & 1
             check_c = c & 1
