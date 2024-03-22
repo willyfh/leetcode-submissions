@@ -25,10 +25,8 @@ class Trie:
             if '-' in d:
                 outs.append(pref)
             
-            l = list(d.keys())
-            l.sort()
             
-            for i in l:
+            for i in d.keys():
                 if i=='-':
                     continue
                 pref+=i
@@ -44,6 +42,7 @@ class Trie:
 class Solution:
     def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
         trie = Trie()
+        products.sort()
         for product in products:
             trie.insert(product)
         
