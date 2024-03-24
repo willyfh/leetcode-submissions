@@ -1,20 +1,20 @@
 class Solution:
     def mostFrequentIDs(self, nums: List[int], freq: List[int]) -> List[int]:
-        d = {}
+        counts = {}
         ans = []
-        max_heap = []
+        heap = []
         for i, num in enumerate(nums):
-            if num not in d:
-                d[num] = 0
+            if num not in counts:
+                counts[num] = 0
                 
-            d[num] += freq[i]
+            counts[num] += freq[i]
             
-            heapq.heappush(max_heap, (-d[num], num))
+            heapq.heappush(heap, (-counts[num], num))
 
-            while max_heap and d[max_heap[0][1]] != -max_heap[0][0]:
-                heapq.heappop(max_heap)
+            while heap and counts[heap[0][1]] != -heap[0][0]:
+                heapq.heappop(heap)
 
-            ans.append(-max_heap[0][0])
+            ans.append(-heap[0][0])
 
         return ans
             
