@@ -6,8 +6,7 @@ class Solution:
         
         self.dp = [[-1]*n for i in range(m)]
         
-        self.ans = 0
-        
+        ans = 0
         def helper(i, j):
         
             if i ==m or j == n:
@@ -19,17 +18,15 @@ class Solution:
                 right = helper(i, j+1)
                 down_right = helper(i+1,j+1)
                 down = helper(i+1, j)
-                sq = sqrt(min(right, down_right, down))
-                out = (1 + int(sq))**2
+                out = 1 + min(right, down_right, down)
                                 
                 
-            self.ans = max(self.ans, out)
             self.dp[i][j] = out
             return out
             
         for i in range(m):
             for j in range(n):
-                helper(i,j)
+                out = helper(i,j)
+                ans = max(ans, out)
         
-        return self.ans
-        
+        return ans*ans
