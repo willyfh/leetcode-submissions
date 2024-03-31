@@ -1,32 +1,25 @@
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         
-        m = len(word1)
-        n = len(word2)
-        self.dp = [[-1]*n for x in range(m)]
+        
+        dp = [[0]*len(word2) for i in range(len(word1))]
         
         def helper(i, j):
             
-            if i==m and j==n:
-                return 0
-            elif i==m:
-                return n-j
-            elif j==n:
-                return m-i
+            if i ==len(word1):
+                return len(word2) - j
+            elif j==len(word2):
+                return len(word1) - i
             
-            if self.dp[i][j] >=0:
-                return self.dp[i][j]
+            if dp[i][j]>0:
+                return dp[i][j]
             
             if word1[i] == word2[j]:
-                self.dp[i][j] = helper(i+1, j+1)
-                return self.dp[i][j]
+                dp[i][j] = helper(i+1, j+1)
+                return dp[i][j]
             else:
-                
-                delete = 1 + helper(i+1, j)
-                replace = 1 + helper(i+1, j+1)
-                insert = 1 + helper(i, j+1)
-                
-                self.dp[i][j] = min(delete, replace, insert)
-                return self.dp[i][j]
-            
+                dp[i][j] = 1 + min(helper(i+1, j+1), helper(i+1, j), helper(i, j+1))
+                return dp[i][j]
+        
+        
         return helper(0, 0)
