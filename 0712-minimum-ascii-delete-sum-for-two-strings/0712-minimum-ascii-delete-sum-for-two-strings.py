@@ -1,7 +1,7 @@
 class Solution:
     def minimumDeleteSum(self, s1: str, s2: str) -> int:
         
-        dp = [[0]*len(s2) for i in range(len(s1))]
+        dp = [[-1]*len(s2) for i in range(len(s1))]
         
         def helper(i, j):
             if i == len(s1):
@@ -14,7 +14,7 @@ class Solution:
                 for k in s1[i:]:
                     s+=ord(k)
                 return s
-            if dp[i][j] >0:
+            if dp[i][j] >-1:
                 return dp[i][j]
             out = 0
             if s1[i] == s2[j]:
