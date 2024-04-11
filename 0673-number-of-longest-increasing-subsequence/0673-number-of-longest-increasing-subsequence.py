@@ -9,8 +9,8 @@ class Solution:
                 if nums[i] > nums[j]:
                     if dp[i] < dp[j] + 1:
                         dp[i] =  dp[j] + 1
-                        count[i] = 0
-                    if dp[j] + 1 == dp[i]:
+                        count[i] = count[j]
+                    elif dp[j] + 1 == dp[i]:
                         count[i]+=count[j]
         
 
