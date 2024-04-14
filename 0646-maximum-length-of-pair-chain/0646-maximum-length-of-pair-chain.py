@@ -9,6 +9,4 @@ class Solution:
             if sorted_p[i][0] > s[1]:
                 ans += 1
                 s = sorted_p[i]
-
-        
         return ans
