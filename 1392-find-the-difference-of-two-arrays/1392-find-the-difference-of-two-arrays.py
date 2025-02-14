@@ -7,6 +7,9 @@ class Solution:
         for n1 in sets1:
             if n1 not in sets2:
                 a1.append(n1)
+            else:
+                sets2.remove(n1)
+            
         for n2 in sets2:
             if n2 not in sets1:
                 a2.append(n2)
