@@ -17,16 +17,15 @@ class Solution:
         next_row = 0
         while len(q)>0:
             node = q.popleft()
-            row-=1
-            if row==0:
-                ans.append(node.val)
             if node.left is not None:
                 q.append(node.left)
                 next_row += 1
             if node.right is not None:
                 q.append(node.right)
                 next_row += 1
+            row-=1
             if row == 0:
+                ans.append(node.val)
                 row = next_row
                 next_row=0
         return ans
