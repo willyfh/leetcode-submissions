@@ -14,6 +14,8 @@ class Solution:
             if node.left is None and node.right is None:
                 if currSum == targetSum:
                     return True
+                else:
+                    return False
             return helper(node.left, currSum) or helper(node.right, currSum)
                 
 
