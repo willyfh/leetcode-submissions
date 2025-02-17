@@ -10,17 +10,17 @@ class Solution:
 
         def helper(node, tempList, remainingSum):
             if node is None:
-                return False
+                return
             tempList.append(node.val)
             if node.left is None and node.right is None: #leaf
                 if remainingSum == node.val:
                     ans.append(tempList.copy())
             
-            left = helper(node.left, tempList, remainingSum-node.val)
+            helper(node.left, tempList, remainingSum-node.val)
             if node.left is not None:
                 tempList.pop()
 
-            right = helper(node.right, tempList, remainingSum-node.val)
+            helper(node.right, tempList, remainingSum-node.val)
             if node.right is not None:
                 tempList.pop()
             
