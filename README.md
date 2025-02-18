@@ -60,4 +60,12 @@ A collection of my LeetCode submissions created automatically using [LeetHub](ht
 |  |
 | ------- |
 | [0113-path-sum-ii](https://github.com/willyfh/leetcode-submissions/tree/master/0113-path-sum-ii) |
+## Binary Search
+|  |
+| ------- |
+| [0374-guess-number-higher-or-lower](https://github.com/willyfh/leetcode-submissions/tree/master/0374-guess-number-higher-or-lower) |
+## Interactive
+|  |
+| ------- |
+| [0374-guess-number-higher-or-lower](https://github.com/willyfh/leetcode-submissions/tree/master/0374-guess-number-higher-or-lower) |
 <!---LeetCode Topics End-->
