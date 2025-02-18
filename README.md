@@ -22,6 +22,7 @@ A collection of my LeetCode submissions created automatically using [LeetHub](ht
 | [0113-path-sum-ii](https://github.com/willyfh/leetcode-submissions/tree/master/0113-path-sum-ii) |
 | [0199-binary-tree-right-side-view](https://github.com/willyfh/leetcode-submissions/tree/master/0199-binary-tree-right-side-view) |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/0236-lowest-common-ancestor-of-a-binary-tree) |
+| [0437-path-sum-iii](https://github.com/willyfh/leetcode-submissions/tree/master/0437-path-sum-iii) |
 | [1116-maximum-level-sum-of-a-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/1116-maximum-level-sum-of-a-binary-tree) |
 | [1474-longest-zigzag-path-in-a-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/1474-longest-zigzag-path-in-a-binary-tree) |
 ## Depth-First Search
@@ -31,6 +32,7 @@ A collection of my LeetCode submissions created automatically using [LeetHub](ht
 | [0113-path-sum-ii](https://github.com/willyfh/leetcode-submissions/tree/master/0113-path-sum-ii) |
 | [0199-binary-tree-right-side-view](https://github.com/willyfh/leetcode-submissions/tree/master/0199-binary-tree-right-side-view) |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/0236-lowest-common-ancestor-of-a-binary-tree) |
+| [0437-path-sum-iii](https://github.com/willyfh/leetcode-submissions/tree/master/0437-path-sum-iii) |
 | [1116-maximum-level-sum-of-a-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/1116-maximum-level-sum-of-a-binary-tree) |
 | [1474-longest-zigzag-path-in-a-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/1474-longest-zigzag-path-in-a-binary-tree) |
 ## Breadth-First Search
@@ -46,6 +48,7 @@ A collection of my LeetCode submissions created automatically using [LeetHub](ht
 | [0113-path-sum-ii](https://github.com/willyfh/leetcode-submissions/tree/master/0113-path-sum-ii) |
 | [0199-binary-tree-right-side-view](https://github.com/willyfh/leetcode-submissions/tree/master/0199-binary-tree-right-side-view) |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/0236-lowest-common-ancestor-of-a-binary-tree) |
+| [0437-path-sum-iii](https://github.com/willyfh/leetcode-submissions/tree/master/0437-path-sum-iii) |
 | [1116-maximum-level-sum-of-a-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/1116-maximum-level-sum-of-a-binary-tree) |
 | [1474-longest-zigzag-path-in-a-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/1474-longest-zigzag-path-in-a-binary-tree) |
 ## Two Pointers
