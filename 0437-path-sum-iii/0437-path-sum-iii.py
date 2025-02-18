@@ -6,31 +6,25 @@
 #         self.right = right
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
-        
-        self.ans = 0
-        
-        cache = {0: 1}
-             
-        def pathSumHelper(node, currSum):
-            if node == None:
+        ans = [0]
+
+        def helper(node, targetSum):
+            if node is None:
                 return
-            currSum += node.val
-            
-            oldSum = currSum - targetSum
-            
-            if oldSum in cache:
-                self.ans += cache[oldSum]
-                
-            if currSum not in cache:
-                cache[currSum] = 1
-            else:
-                cache[currSum] += 1
-                
-            pathSumHelper(node.left, currSum)
-            pathSumHelper(node.right, currSum)
 
-            cache[currSum] -= 1
-
+            findSum(node, targetSum)
             
-        pathSumHelper(root, 0)
-        return self.ans
+            helper(node.left, targetSum)
+            helper(node.right, targetSum)
+
+        def findSum(node, currentSum):
+            if node is None:
+                return
+            if node.val == currentSum:
+                ans[0] += 1
+            
+            findSum(node.left, currentSum-node.val)
+            findSum(node.right, currentSum-node.val)
+
+        helper(root, targetSum)
+        return ans[0]
