@@ -18,6 +18,7 @@ A collection of my LeetCode submissions created automatically using [LeetHub](ht
 ## Tree
 |  |
 | ------- |
+| [0104-maximum-depth-of-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0112-path-sum](https://github.com/willyfh/leetcode-submissions/tree/master/0112-path-sum) |
 | [0113-path-sum-ii](https://github.com/willyfh/leetcode-submissions/tree/master/0113-path-sum-ii) |
 | [0199-binary-tree-right-side-view](https://github.com/willyfh/leetcode-submissions/tree/master/0199-binary-tree-right-side-view) |
@@ -29,6 +30,7 @@ A collection of my LeetCode submissions created automatically using [LeetHub](ht
 ## Depth-First Search
 |  |
 | ------- |
+| [0104-maximum-depth-of-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0112-path-sum](https://github.com/willyfh/leetcode-submissions/tree/master/0112-path-sum) |
 | [0113-path-sum-ii](https://github.com/willyfh/leetcode-submissions/tree/master/0113-path-sum-ii) |
 | [0199-binary-tree-right-side-view](https://github.com/willyfh/leetcode-submissions/tree/master/0199-binary-tree-right-side-view) |
@@ -39,12 +41,14 @@ A collection of my LeetCode submissions created automatically using [LeetHub](ht
 ## Breadth-First Search
 |  |
 | ------- |
+| [0104-maximum-depth-of-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0112-path-sum](https://github.com/willyfh/leetcode-submissions/tree/master/0112-path-sum) |
 | [0199-binary-tree-right-side-view](https://github.com/willyfh/leetcode-submissions/tree/master/0199-binary-tree-right-side-view) |
 | [1116-maximum-level-sum-of-a-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/1116-maximum-level-sum-of-a-binary-tree) |
 ## Binary Tree
 |  |
 | ------- |
+| [0104-maximum-depth-of-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0112-path-sum](https://github.com/willyfh/leetcode-submissions/tree/master/0112-path-sum) |
 | [0113-path-sum-ii](https://github.com/willyfh/leetcode-submissions/tree/master/0113-path-sum-ii) |
 | [0199-binary-tree-right-side-view](https://github.com/willyfh/leetcode-submissions/tree/master/0199-binary-tree-right-side-view) |
