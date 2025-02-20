@@ -64,6 +64,7 @@ A collection of my LeetCode submissions created automatically using [LeetHub](ht
 ## Dynamic Programming
 |  |
 | ------- |
+| [1236-n-th-tribonacci-number](https://github.com/willyfh/leetcode-submissions/tree/master/1236-n-th-tribonacci-number) |
 | [1474-longest-zigzag-path-in-a-binary-tree](https://github.com/willyfh/leetcode-submissions/tree/master/1474-longest-zigzag-path-in-a-binary-tree) |
 ## Backtracking
 |  |
@@ -81,4 +82,12 @@ A collection of my LeetCode submissions created automatically using [LeetHub](ht
 |  |
 | ------- |
 | [0783-search-in-a-binary-search-tree](https://github.com/willyfh/leetcode-submissions/tree/master/0783-search-in-a-binary-search-tree) |
+## Math
+|  |
+| ------- |
+| [1236-n-th-tribonacci-number](https://github.com/willyfh/leetcode-submissions/tree/master/1236-n-th-tribonacci-number) |
+## Memoization
+|  |
+| ------- |
+| [1236-n-th-tribonacci-number](https://github.com/willyfh/leetcode-submissions/tree/master/1236-n-th-tribonacci-number) |
 <!---LeetCode Topics End-->
